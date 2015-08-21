@@ -19,11 +19,11 @@
 <div>
 	<h:form>
 		<h:outputLabel for="txt_nummer" value="Naam: "></h:outputLabel>
-		<h:inputText id="txt_nummer" value="#{klant.nummer}"></h:inputText><br />
+		<h:inputText id="txt_nummer" value="#{klant.naam}"></h:inputText><br />
 		<h:outputLabel for="txt_naam" value="Nummer: "></h:outputLabel>
-		<h:inputText id="txt_naam" value="#{klant.naam}"></h:inputText><br />
+		<h:inputText id="txt_naam" value="#{klant.nummer}"></h:inputText><br />
 		<h:commandButton value="Toevoegen" action="#{vertegenwoordiger.add()}"></h:commandButton>
-		<h:commandButton value="Toevoegen" action="#{vertegenwoordiger.remove()}"></h:commandButton>
+		<h:commandButton value="Verwijderen" action="#{vertegenwoordiger.remove()}"></h:commandButton>
 	</h:form>
 </div>
 <div>
