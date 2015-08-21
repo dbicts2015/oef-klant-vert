@@ -1,12 +1,11 @@
 package persoon;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 /**
  * 
@@ -41,21 +40,12 @@ public class Vertegenwoordiger {
 	}
 
 	/**
-	 * Verwijdert een collectie van klanten uit de lijst van klanten
-	 * 
-	 * @param klanten
-	 */
-	public void verwijderKlant(Collection<Klant> klanten) {
-		klanten.removeAll(klanten);
-	}
-
-	/**
 	 * Verwijdert de gegeven klant van de lijst
 	 * 
 	 * @param klant
 	 */
 	public void verwijderKlant(Klant klant) {
-		verwijderKlant(klant);
+		klanten.remove(klant);
 	}
 
 	/**
@@ -65,7 +55,13 @@ public class Vertegenwoordiger {
 	 * @param nummer
 	 */
 	public void verwijderKlant(String nummer) {
-		verwijderKlant(klanten.stream().filter(k -> k.getNummer().equals(nummer)).collect(Collectors.toList()));
+		for (Iterator<Klant> iterator = klanten.iterator(); iterator.hasNext();) {
+			Klant klant = iterator.next();
+			
+			if (klant.getNummer().equals(nummer)) {
+				iterator.remove();
+			}
+		}
 	}
 
 	/**
