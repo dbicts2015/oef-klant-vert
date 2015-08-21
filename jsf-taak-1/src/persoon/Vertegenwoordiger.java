@@ -3,9 +3,9 @@ package persoon;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * 
@@ -55,13 +55,7 @@ public class Vertegenwoordiger {
 	 * @param nummer
 	 */
 	public void verwijderKlant(String nummer) {
-		for (Iterator<Klant> iterator = klanten.iterator(); iterator.hasNext();) {
-			Klant klant = iterator.next();
-			
-			if (klant.getNummer().equals(nummer)) {
-				iterator.remove();
-			}
-		}
+		klanten.removeAll(klanten.stream().filter(k -> k.getNummer().equals(nummer)).collect(Collectors.toSet()));
 	}
 
 	/**
