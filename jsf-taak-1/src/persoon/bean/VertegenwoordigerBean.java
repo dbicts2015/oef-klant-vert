@@ -55,7 +55,7 @@ public class VertegenwoordigerBean implements Serializable {
 	}
 
 	public void add() {
-		if (vertegenwoordiger.getAantalKlanten() >= 1) {
+		if (vertegenwoordiger.getAantalKlanten() >= 10) {
 			vertegenwoordigerEvents.fire(new VertegenwoordigerEvent());
 		}
 		else vertegenwoordiger.voegKlantToe(klant.getNummer(), klant.getNaam());
